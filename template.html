@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>곽유민 | 숙박 컨설턴트</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: '#eff6ff',
+            100: '#dbeafe',
+            500: '#3b82f6',
+            600: '#2563eb',
+            900: '#1e3a8a',
+          }
+        },
+        fontFamily: {
+          sans: ['"Noto Sans KR"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .gradient-text {
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  html { scroll-behavior: smooth; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="font-sans antialiased text-slate-900 bg-white">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="font-bold text-lg">
+      <span class="text-brand-600">곽유민</span>
+      <span class="text-slate-400 font-normal text-sm ml-1">NOL 숙박 컨설턴트</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+      <a href="#cases" class="hover:text-brand-600 transition-colors">성공 사례</a>
+      <a href="#strategy" class="hover:text-brand-600 transition-colors">맞춤 전략</a>
+      <a href="#gold" class="relative font-bold text-amber-600 hover:text-amber-700 transition-colors">
+        골드클래스
+        <span class="absolute -top-2.5 -right-3.5 text-[9px] font-bold bg-amber-500 text-white px-1.5 py-0.5 rounded-full">NEW</span>
+      </a>
+      <a href="#contact" class="hover:text-brand-600 transition-colors">문의</a>
+    </div>
+    <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-900 transition-colors">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 상담 문의
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+  <div class="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-brand-50 blur-[120px]"></div>
+  <div class="absolute top-[40%] -left-[20%] w-[60%] h-[60%] rounded-full bg-cyan-50 blur-[100px]"></div>
+
+  <div class="max-w-3xl mx-auto px-6 relative text-center">
+    <div class="reveal">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1.5 rounded-full mb-6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 서울 · 경기 지역 전문
+      </span>
+      <h1 class="text-4xl md:text-5xl font-black leading-tight mb-6">
+        데이터로<br>
+        <span class="gradient-text">매출을 올리는 사람</span>
+      </h1>
+      <p class="text-slate-600 text-lg leading-relaxed mb-8">
+        야놀자 NOL에서 데이터로 <strong class="text-slate-900">숙소 매출</strong>을 실제 성과로 만듭니다.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <a href="#cases" class="bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-900 transition-colors">
+          성공 사례 보기
+        </a>
+        <a href="#contact" class="bg-white border border-slate-200 text-slate-700 font-semibold px-6 py-3 rounded-full hover:border-brand-600 hover:text-brand-600 transition-colors">
+          상담 문의하기
+        </a>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 px-6 py-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs text-slate-400 leading-none mb-1">광고비 대비 매출</div>
+            <div class="font-bold text-slate-900 leading-none">ROAS 100%+</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 px-6 py-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs text-slate-400 leading-none mb-1">전월 대비 예약 수</div>
+            <div class="font-bold text-slate-900 leading-none">예약 +40%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS CASES -->
+<section id="cases" class="py-24 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <span class="text-brand-600 font-semibold text-sm">SUCCESS CASE</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 mb-4">성공 사례</h2>
+      <p class="text-slate-600">감이 아니라 <strong class="text-slate-900">데이터</strong>로 만든 결과입니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Case 1 -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 reveal">
+        <h3 class="text-2xl md:text-3xl font-black mb-2">수원역 W 업체</h3>
+        <p class="text-sm font-semibold text-brand-600 mb-5">NOL CPM 광고 효율화</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          NOL CPM 광고 전략을 재정비해 <strong class="text-slate-900">노출 효율</strong>을 끌어올렸습니다.
+        </p>
+        <div class="flex items-end gap-2">
+          <span class="text-3xl font-black text-brand-600">ROAS 100%+</span>
+        </div>
+        <div class="text-xs text-slate-400 mt-1">광고비 대비 매출</div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 reveal">
+        <h3 class="text-2xl md:text-3xl font-black mb-2">남양주 J 업체</h3>
+        <p class="text-sm font-semibold text-brand-600 mb-5">객실 카피라이팅 리뉴얼</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          고객이 원하는 포인트로 <strong class="text-slate-900">객실 카피</strong>를 새로 썼습니다.
+        </p>
+        <div class="flex items-end gap-2">
+          <span class="text-3xl font-black text-brand-600">예약 +40%</span>
+        </div>
+        <div class="text-xs text-slate-400 mt-1">전월 대비 예약 수</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL STRATEGY -->
+<section id="strategy" class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-brand-600 font-semibold text-sm">REGIONAL STRATEGY</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 mb-3">지역별 맞춤 전략</h2>
+      <p class="text-slate-600">상권을 고르면 <strong class="text-slate-900">맞춤 전략</strong>을 바로 보여드려요.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 md:p-10 reveal">
+      <div class="mb-6">
+        <div class="text-xs font-bold text-slate-400 mb-3">경기</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="selectCity(this,'남양주시','gyeonggi','드라이브 데이트 상권 · 프리미엄 객실 수요 높음')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">남양주시</button>
+          <button type="button" onclick="selectCity(this,'광주시','gyeonggi','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">광주시</button>
+          <button type="button" onclick="selectCity(this,'양주시','gyeonggi','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">양주시</button>
+          <button type="button" onclick="selectCity(this,'가평시','gyeonggi','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">가평시</button>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <div class="text-xs font-bold text-slate-400 mb-3">서울</div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="selectCity(this,'종로구','seoul','도심 관광 상권 · 내외국인 관광 수요')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">종로구</button>
+          <button type="button" onclick="selectCity(this,'용산구','seoul','도심 관광 상권 · 내외국인 관광 수요')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">용산구</button>
+          <button type="button" onclick="selectCity(this,'중구','seoul','도심 관광 상권 · 내외국인 관광 수요')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">중구</button>
+          <button type="button" onclick="selectCity(this,'은평구','seoul','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">은평구</button>
+          <button type="button" onclick="selectCity(this,'노원구','seoul','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">노원구</button>
+          <button type="button" onclick="selectCity(this,'도봉구','seoul','')" class="city-btn px-4 py-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors">도봉구</button>
+        </div>
+      </div>
+
+      <div id="room-question" class="hidden bg-slate-50 rounded-2xl p-6 text-center">
+        <p class="font-bold mb-4"><span id="q-city"></span> · 객실 수가 <span id="q-threshold"></span>개 이상인가요?</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <button type="button" onclick="answerRooms(true)" id="btn-above" class="bg-brand-600 text-white font-semibold px-5 py-2.5 rounded-full hover:bg-brand-900 transition-colors"></button>
+          <button type="button" onclick="answerRooms(false)" id="btn-below" class="bg-white border border-slate-200 text-slate-700 font-semibold px-5 py-2.5 rounded-full hover:border-brand-600 hover:text-brand-600 transition-colors"></button>
+        </div>
+      </div>
+
+      <div id="result-area" class="hidden bg-brand-50 rounded-2xl p-6 md:p-8 mt-6"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLD CLASS PROMO -->
+<section id="gold" class="py-20 bg-gradient-to-br from-brand-600 to-cyan-500">
+  <div class="max-w-3xl mx-auto px-6 text-center text-white reveal">
+    <span class="inline-block bg-white/15 text-xs font-bold px-3 py-1 rounded-full mb-4">NEW · 특별 프로모션</span>
+    <h2 class="text-3xl md:text-4xl font-black mb-4">골드클래스 파트너 런칭</h2>
+    <p class="text-white/90 mb-10"><strong class="text-white">딱 5%</strong>만 부담하면, 노출은 바로 올라갑니다.</p>
+
+    <div class="grid sm:grid-cols-2 gap-4 text-left">
+      <div class="bg-white/10 rounded-2xl p-6">
+        <div class="font-bold text-lg mb-2">5% 할인 쿠폰</div>
+        <p class="text-sm text-white/80"><strong class="text-white">5%</strong>만 부담하면 끝. 큰 비용 부담 없이 시작할 수 있어요.</p>
+      </div>
+      <div class="bg-white/10 rounded-2xl p-6">
+        <div class="font-bold text-lg mb-2">골드 특가 상위 노출</div>
+        <p class="text-sm text-white/80">숙소 <strong class="text-white">좌측 상단 골드 배지</strong>로 먼저 눈에 띕니다.</p>
+      </div>
+    </div>
+
+    <a href="#contact" class="inline-block mt-10 bg-white text-brand-600 font-bold px-7 py-3 rounded-full hover:bg-slate-50 transition-colors">지금 신청하기</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-slate-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-10 md:p-14 reveal">
+      <div class="flex flex-col md:flex-row items-center gap-6 mb-10">
+        <div class="w-20 h-20 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-black mb-1">곽유민</h3>
+          <p class="text-slate-500">NOL(야놀자) 온라인숙박영업팀</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="tel:010-6380-0349" class="flex items-center gap-4 bg-slate-50 hover:bg-brand-50 rounded-2xl p-5 transition-colors">
+          <div class="w-11 h-11 rounded-full bg-brand-600 text-white flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-slate-400">전화 상담</div>
+            <div class="font-semibold">010-6380-0349</div>
+          </div>
+        </a>
+        <a href="mailto:matt1214@nol-universe.com" class="flex items-center gap-4 bg-slate-50 hover:bg-brand-50 rounded-2xl p-5 transition-colors">
+          <div class="w-11 h-11 rounded-full bg-brand-600 text-white flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-slate-400">이메일</div>
+            <div class="font-semibold break-all">matt1214@nol-universe.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 border-t border-slate-100">
+  <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-400">
+    © 2026 곽유민 · NOL(야놀자) 온라인숙박영업팀
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  const STRATEGY = {
+    gyeonggi: {
+      threshold: 25,
+      above: { tier: '프로 · 울트라', tip: '쿠폰으로 회전율 올리기' },
+      below: { tier: '스탠다드 · 베이직', tip: '쿠폰으로 만실 노리기 + 평일 수요 채우기' }
+    },
+    seoul: {
+      threshold: 20,
+      above: { tier: '베이직 이상 + 쿠폰룸', tip: '' },
+      below: { tier: '기본 광고 + 쿠폰룸', tip: '' }
+    }
+  };
+  let sel = { city: '', region: '', note: '' };
+
+  function selectCity(btn, city, region, note) {
+    sel = { city, region, note };
+    document.querySelectorAll('.city-btn').forEach(b => {
+      b.classList.remove('bg-brand-600', 'text-white', 'border-brand-600');
+      b.classList.add('border-slate-200', 'text-slate-700');
+    });
+    btn.classList.remove('border-slate-200', 'text-slate-700');
+    btn.classList.add('bg-brand-600', 'text-white', 'border-brand-600');
+
+    const t = STRATEGY[region].threshold;
+    document.getElementById('q-city').textContent = city;
+    document.getElementById('q-threshold').textContent = t;
+    document.getElementById('btn-above').textContent = t + '개 이상';
+    document.getElementById('btn-below').textContent = t + '개 미만';
+    document.getElementById('room-question').classList.remove('hidden');
+    document.getElementById('result-area').classList.add('hidden');
+  }
+
+  function answerRooms(isAbove) {
+    const data = STRATEGY[sel.region][isAbove ? 'above' : 'below'];
+    let html = `<p class="font-bold text-lg mb-2">${sel.city}</p>`;
+    if (sel.note) html += `<p class="text-sm text-slate-500 mb-4">${sel.note}</p>`;
+    html += `<p class="text-lg leading-relaxed"><strong class="text-brand-600">${data.tier}</strong> 추천`;
+    if (data.tip) html += `<br><strong class="text-slate-900">${data.tip}</strong>`;
+    html += `</p>`;
+    const r = document.getElementById('result-area');
+    r.innerHTML = html;
+    r.classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
