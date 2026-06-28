@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>곽유민 | NOL(야놀자) 숙박 컨설턴트</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          dark: { 900:'#0a0a0a', 800:'#111827', 700:'#1e293b', 600:'#334155' },
+          electric: { 300:'#7dd3fc', 400:'#00d4ff', 500:'#0ea5e9' },
+          brand: { 500:'#3b82f6', 600:'#2563eb', dark:'#0f172a', black:'#020617' },
+          gold: { light:'#fef08a', DEFAULT:'#eab308', dark:'#a16207' }
+        },
+        fontFamily: {
+          sans:['"Noto Sans KR"','sans-serif'],
+          mont:['"Montserrat"','sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html{scroll-behavior:smooth;background:#0a0a0a;}
+  body{background:#0a0a0a;color:#f8fafc;}
+  .glow-blue{box-shadow:0 0 40px rgba(0,212,255,0.15),0 0 80px rgba(0,212,255,0.05);}
+  .glow-text{text-shadow:0 0 40px rgba(0,212,255,0.4);}
+  .gradient-text{background:linear-gradient(90deg,#00d4ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-glow{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,212,255,0.08) 0%,transparent 70%);}
+  .dark-card{background:#111827;border:1px solid #1e293b;transition:border-color .3s,box-shadow .3s;}
+  .dark-card:hover{border-color:rgba(0,212,255,0.3);box-shadow:0 0 20px rgba(0,212,255,0.08);}
+  .btn-neon{background:linear-gradient(135deg,#0ea5e9,#00d4ff);color:#0a0a0a;font-weight:900;transition:all .3s;box-shadow:0 0 20px rgba(0,212,255,0.3);}
+  .btn-neon:hover{box-shadow:0 0 35px rgba(0,212,255,0.5);transform:translateY(-2px);}
+  .btn-outline{border:1px solid rgba(0,212,255,0.4);color:#00d4ff;background:transparent;transition:all .3s;}
+  .btn-outline:hover{background:rgba(0,212,255,0.08);border-color:#00d4ff;}
+  .stat-card{background:linear-gradient(135deg,#111827,#0f172a);border:1px solid #1e293b;position:relative;overflow:hidden;}
+  .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00d4ff,#3b82f6);}
+  .section-divider{height:1px;background:linear-gradient(90deg,transparent,#1e293b,transparent);}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .fade-in{animation:fadeIn .4s ease-out forwards;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .dark-table th{background:#1e293b;color:#94a3b8;}
+  .dark-table td{background:#111827;color:#cbd5e1;}
+  .scrollbar-hide::-webkit-scrollbar{display:none;}
+  .scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none;}
+  .bar{display:block;width:22px;height:2px;background:#e2e8f0;transition:all .3s;}
+  .city-btn{background:#111827;border:1px solid #1e293b;color:#94a3b8;transition:all .2s;}
+  .city-btn:hover,.city-btn.active{border-color:#00d4ff;color:#00d4ff;}
+  .city-btn.active{background:rgba(0,212,255,0.08);font-weight:700;}
+  .faq-item{border:1px solid #1e293b;background:#111827;border-radius:16px;overflow:hidden;}
+  .faq-answer{display:none;}
+  .faq-answer.open{display:block;}
+  .gold-section{background:linear-gradient(135deg,#1a1200,#0a0a0a);border-top:1px solid rgba(245,158,11,0.2);border-bottom:1px solid rgba(245,158,11,0.2);}
+  .text-gradient-gold{background:linear-gradient(to right,#bf953f,#fcf6ba,#b38728,#fbf5b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .bg-gradient-gold{background:linear-gradient(135deg,#bf953f,#fcf6ba,#b38728);}
+  .donut-chart{transform:rotate(-90deg);}
+  .donut-segment{fill:transparent;stroke-width:8;stroke-linecap:round;}
+  .no-scrollbar::-webkit-scrollbar{display:none;}
+  .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}
+  @keyframes fill-chart{0%{stroke-dasharray:0 100}100%{stroke-dasharray:53 47}}
+  @keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(234,179,8,0.4)}50%{box-shadow:0 0 0 15px rgba(234,179,8,0)}}
+  .animate-fill-chart{animation:fill-chart 1.5s ease-out forwards;}
+  .animate-pulse-gold{animation:pulse-gold 2s cubic-bezier(0.4,0,0.6,1) infinite;}
+  .brand-black{color:#020617;}
+  .big-stat{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:1;letter-spacing:-0.03em;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-700">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#top" class="font-black text-lg flex items-center gap-2 hover:opacity-80 transition-opacity">
+      <span class="gradient-text">곽유민</span>
+      <span class="text-slate-500 font-medium text-sm hidden sm:inline">| NOL 숙박 컨설턴트</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-400">
+      <a href="#cases" class="hover:text-white transition-colors">성공 사례</a>
+      <a href="#strategy" class="hover:text-white transition-colors">맞춤 전략</a>
+      <a href="#coupon-room" class="relative text-electric-400 hover:text-white transition-colors">쿠폰룸<span class="absolute -top-2.5 -right-5 text-[9px] font-black bg-electric-500 text-dark-900 px-1.5 py-0.5 rounded-full">인기</span></a>
+      <a href="#gold" class="relative text-amber-400 hover:text-white transition-colors">골드클래스<span class="absolute -top-2.5 -right-4 text-[9px] font-black bg-amber-500 text-dark-900 px-1.5 py-0.5 rounded-full animate-pulse">HOT</span></a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="tel:010-6380-0349" class="btn-neon text-sm font-black px-5 py-2.5 rounded-full"><span class="hidden sm:inline">무료 진단 받기</span><span class="sm:hidden">전화</span></a>
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 justify-center items-center w-10 h-10" onclick="toggleMenu()">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-t border-dark-700 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
+    <a href="#cases" onclick="closeMenu()" class="text-slate-300 hover:text-white pb-4 border-b border-dark-700">성공 사례</a>
+    <a href="#strategy" onclick="closeMenu()" class="text-slate-300 hover:text-white pb-4 border-b border-dark-700">맞춤 전략</a>
+    <a href="#coupon-room" onclick="closeMenu()" class="text-electric-400 pb-4 border-b border-dark-700">쿠폰룸 프로모션</a>
+    <a href="#gold" onclick="closeMenu()" class="text-amber-400">골드클래스</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32 hero-glow">
+  <div class="max-w-4xl mx-auto px-6 text-center relative reveal">
+    <div class="inline-flex items-center gap-2 text-xs font-bold text-electric-400 border border-electric-400/30 bg-electric-400/5 px-4 py-2 rounded-full mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-electric-400 animate-pulse"></span>서울 · 경기 지역 상권 분석 전문
+    </div>
+    <h1 class="font-black leading-tight tracking-tight mb-6" style="font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;">
+      오늘 밤<br><span class="gradient-text glow-text">빈 방</span>이 있으면<br>사장님만 손해입니다
+    </h1>
+    <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
+      광고비는 그대로, 빈 방만 줄입니다.<br>
+      <strong class="text-white">사장님 숙소에 맞는 세팅으로 오늘 밤 객실을 채워드립니다.</strong>
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+      <a href="tel:010-6380-0349" class="btn-neon inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-base">📞 지금 무료 진단 받기</a>
+      <a href="#cases" class="btn-outline inline-flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-base font-bold">성과 사례 보기 →</a>
+    </div>
+    <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+      <div class="stat-card rounded-2xl p-5">
+        <div class="big-stat gradient-text">800<span class="text-2xl">%</span></div>
+        <div class="text-slate-500 text-xs mt-2 font-medium">ROAS 달성</div>
+      </div>
+      <div class="stat-card rounded-2xl p-5">
+        <div class="big-stat gradient-text">+40<span class="text-2xl">%</span></div>
+        <div class="text-slate-500 text-xs mt-2 font-medium">예약 증가</div>
+      </div>
+      <div class="stat-card rounded-2xl p-5">
+        <div class="big-stat gradient-text">17<span class="text-2xl">곳</span></div>
+        <div class="text-slate-500 text-xs mt-2 font-medium">담당 상권</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CASES -->
+<section id="cases" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <span class="text-electric-400 font-black text-xs tracking-widest">실제 성과</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 text-white">입증된 성공 사례</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="dark-card rounded-3xl p-8 reveal">
+        <span class="text-xs font-black bg-electric-500/10 text-electric-400 border border-electric-400/20 px-3 py-1 rounded-full inline-block mb-5">NOL(야놀자) 광고 효율화</span>
+        <h3 class="text-2xl font-black text-white mb-3">수원역 I 호텔</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-8">숙소 소개 문구와 사진 배치를 손보고, 쿠폰 할인율을 업장 상황에 맞게 조정했습니다. 대표님과 매주 직접 소통하며 세팅을 다듬은 결과입니다.</p>
+        <div class="big-stat gradient-text" style="font-size:clamp(2rem,6vw,3.5rem);">ROAS 800%</div>
+        <div class="text-slate-500 text-sm mt-1">달성</div>
+      </div>
+      <div class="dark-card rounded-3xl p-8 reveal">
+        <span class="text-xs font-black bg-electric-500/10 text-electric-400 border border-electric-400/20 px-3 py-1 rounded-full inline-block mb-5">객실 카피라이팅 리뉴얼</span>
+        <h3 class="text-2xl font-black text-white mb-3">남양주 J 호텔</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-8">투숙객이 실제로 검색하는 키워드로 객실 소개를 다시 썼습니다. 사진 순서도 "보여주고 싶은 것"이 아니라 "보고 싶어 하는 것" 순서로 바꿨습니다.</p>
+        <div class="big-stat gradient-text" style="font-size:clamp(2rem,6vw,3.5rem);">예약 +40%</div>
+        <div class="text-slate-500 text-sm mt-1">상승</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- STRATEGY -->
+<section id="strategy" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <span class="text-electric-400 font-black text-xs tracking-widest">지역별 맞춤 전략</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 text-white">우리 상권, 어떻게 공략할까요?</h2>
+      <p class="text-slate-400 mt-3">지역을 선택하면 맞춤 분석을 바로 확인하실 수 있습니다.</p>
+    </div>
+    <div class="dark-card rounded-3xl p-6 md:p-10 reveal">
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-4"><div class="w-1 h-5 bg-electric-400 rounded-full"></div><h4 class="text-base font-bold text-white">경기도 주요 상권</h4></div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="showRegion('namyangju',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">남양주시</button>
+          <button onclick="showRegion('yeoju_icheon',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">여주/이천시</button>
+          <button onclick="showRegion('pocheon',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">포천시</button>
+          <button onclick="showRegion('gwangju',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">광주시</button>
+          <button onclick="showRegion('yangju',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">양주시</button>
+          <button onclick="showRegion('gapyeong',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">가평군</button>
+          <button onclick="showRegion('ansan',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">안산시</button>
+          <button onclick="showRegion('gunpo',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">군포시</button>
+          <button onclick="showRegion('uijeongbu',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">의정부시</button>
+          <button onclick="showRegion('yeoncheon',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">연천군</button>
+          <button onclick="showRegion('dongducheon',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">동두천시</button>
+        </div>
+      </div>
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-4"><div class="w-1 h-5 bg-electric-400 rounded-full"></div><h4 class="text-base font-bold text-white">서울 주요 상권</h4></div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="showRegion('jongno',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">종로구</button>
+          <button onclick="showRegion('yongsan',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">용산구</button>
+          <button onclick="showRegion('junggu',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">중구</button>
+          <button onclick="showRegion('eunpyeong',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">은평구</button>
+          <button onclick="showRegion('nowon',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">노원구</button>
+          <button onclick="showRegion('dobong',this)" class="city-btn px-4 py-2.5 rounded-full text-sm font-semibold">도봉구</button>
+        </div>
+      </div>
+      <div id="region-report" class="hidden mt-8 border-t border-dark-700 pt-8 fade-in"></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COUPON ROOM -->
+<section id="coupon-room" class="py-24" style="background:linear-gradient(180deg,#0a0a0a 0%,#0a0f1a 50%,#0a0a0a 100%);">
+  <div class="max-w-5xl mx-auto px-6 reveal">
+    <div class="text-center mb-12">
+      <span class="text-xs font-black bg-electric-500/10 text-electric-400 border border-electric-400/20 px-4 py-1.5 rounded-full inline-block mb-4">특급 프로모션</span>
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">NOL(야놀자) 쿠폰룸 시스템</h2>
+      <p class="text-slate-400">매일 판매되는 첫 객실의 정산금을 양보하여 100% 고객 할인 쿠폰으로 전환!<br class="hidden sm:block">초기 자본 없이 만실을 달성하는 선순환 마케팅입니다.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5 mb-12 text-center">
+      <div class="stat-card rounded-2xl p-8"><div class="text-4xl mb-4">🎁</div><h3 class="text-xl font-black text-white mb-2">10만원 쿠폰 무상 지원</h3><p class="text-slate-400 text-sm">신청 즉시 마케팅에 투입 가능한<br>10만원 상당의 쿠폰 지원</p></div>
+      <div class="stat-card rounded-2xl p-8"><div class="text-4xl mb-4">🚀</div><h3 class="text-xl font-black text-white mb-2">2개월 상단 노출 무료</h3><p class="text-slate-400 text-sm">효과를 직접 체감하시도록<br>기본 상단 노출 영역 2개월 무상 제공</p></div>
+    </div>
+    <div class="dark-card rounded-3xl p-6 md:p-10">
+      <h3 class="text-2xl font-black text-white mb-2 text-center">쿠폰룸 상품 운영 정책 요약서</h3>
+      <p class="text-center text-sm text-slate-500 mb-8">매일 첫 판매 객실 재원 기반의 할인 쿠폰 발급 기준</p>
+      <div class="space-y-8">
+        <div>
+          <h4 class="text-sm font-black text-electric-400 border-l-2 border-electric-400 pl-3 mb-3">1. 핵심 운영 원칙</h4>
+          <div class="bg-dark-900 p-4 rounded-xl text-sm text-slate-400 space-y-2">
+            <p>• <strong class="text-white">재원 확보 방식:</strong> 매일 판매되는 첫 객실을 재원으로 고객 대상 할인 쿠폰 자동 생성</p>
+            <p>• <strong class="text-white">타입 제한 없음:</strong> 재원이 되는 첫 판매 객실 및 쿠폰 적용 객실 타입에 어떠한 제한도 없음</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-black text-electric-400 border-l-2 border-electric-400 pl-3 mb-3">2. 이용 형태별 적용 요일</h4>
+          <div class="overflow-x-auto rounded-xl border border-dark-700 scrollbar-hide">
+            <table class="dark-table w-full text-sm text-center whitespace-nowrap min-w-[520px]">
+              <thead><tr>
+                <th class="py-3 px-4 font-bold border-b border-dark-700">구분</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">주중</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">주중플러스</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">FULL</th>
+              </tr></thead>
+              <tbody>
+                <tr class="border-b border-dark-700"><td class="py-3 px-4 font-bold text-white">숙박 기준</td><td class="py-3 px-4 border-l border-dark-700">일,월,화,수,목 (5일)</td><td class="py-3 px-4 border-l border-dark-700">일~목+[금 or 토] (6일)</td><td class="py-3 px-4 border-l border-dark-700">일~토 (7일)</td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">대실 기준</td><td class="py-3 px-4 border-l border-dark-700">월,화,수,목,금 (5일)</td><td class="py-3 px-4 border-l border-dark-700">월~금+[토 or 일] (6일)</td><td class="py-3 px-4 border-l border-dark-700">일~토 (7일)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-black text-electric-400 border-l-2 border-electric-400 pl-3 mb-3">3. 할인율 및 쿠폰 발행 매수</h4>
+          <div class="overflow-x-auto rounded-xl border border-dark-700 scrollbar-hide">
+            <table class="dark-table w-full text-sm text-center whitespace-nowrap min-w-[440px]">
+              <thead><tr>
+                <th class="py-3 px-4 font-bold border-b border-dark-700">할인율</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">FULL (7일)</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">주중 (5일)</th>
+                <th class="py-3 px-4 font-bold border-b border-l border-dark-700">주중플러스 (6일)</th>
+              </tr></thead>
+              <tbody>
+                <tr class="border-b border-dark-700"><td class="py-3 px-4 font-bold text-electric-400">10%</td><td class="py-3 px-4 border-l border-dark-700">7매</td><td class="py-3 px-4 border-l border-dark-700">5매</td><td class="py-3 px-4 border-l border-dark-700">6매</td></tr>
+                <tr class="border-b border-dark-700"><td class="py-3 px-4 font-bold text-electric-400">12%</td><td class="py-3 px-4 border-l border-dark-700">6매</td><td class="py-3 px-4 border-l border-dark-700">4매</td><td class="py-3 px-4 border-l border-dark-700">5매</td></tr>
+                <tr class="border-b border-dark-700"><td class="py-3 px-4 font-bold text-electric-400">15%</td><td class="py-3 px-4 border-l border-dark-700">5매</td><td class="py-3 px-4 border-l border-dark-700">3매</td><td class="py-3 px-4 border-l border-dark-700">4매</td></tr>
+                <tr class="border-b border-dark-700"><td class="py-3 px-4 font-bold text-electric-400">20%</td><td class="py-3 px-4 border-l border-dark-700">3매</td><td class="py-3 px-4 border-l border-dark-700">3매</td><td class="py-3 px-4 border-l border-dark-700">3매</td></tr>
+                <tr><td class="py-3 px-4 font-bold text-electric-400">25%</td><td class="py-3 px-4 border-l border-dark-700">2매</td><td class="py-3 px-4 border-l border-dark-700">2매</td><td class="py-3 px-4 border-l border-dark-700">2매</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-black text-electric-400 border-l-2 border-electric-400 pl-3 mb-3">4. 운영 특이사항</h4>
+          <div class="bg-electric-400/5 border border-electric-400/20 p-4 rounded-xl text-sm text-slate-400 space-y-2">
+            <p>• <strong class="text-electric-300">실속형 (10~15%):</strong> 요일 케이스별 적용 일수와 쿠폰 발행 매수가 정비례하여 운영됩니다.</p>
+            <p>• <strong class="text-electric-300">고효율 (20~25%):</strong> 과도한 할인 방지를 위해 <strong class="text-white">20%는 3매, 25%는 2매로 발행량이 엄격히 고정</strong>되어 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- GOLD CLASS -->
+<section id="gold" class="py-24 gold-section relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gold/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-6 reveal">
+
+    <!-- 상단: 훅 & 메인 카피 -->
+    <div class="flex flex-col md:flex-row items-center gap-10 mb-16">
+      <div class="flex-1 text-center md:text-left">
+        <div class="inline-block border border-gold/50 bg-gold/10 text-gold-light text-xs font-bold px-3 py-1.5 rounded-full mb-4">야놀자 프리미엄 제안</div>
+
+        <h2 class="text-4xl sm:text-5xl font-black mb-5 leading-tight tracking-tight break-keep">
+          <span class="text-gradient-gold">골드클래스 파트너</span>에<br>
+          가입하고 공실을 채우세요.
+        </h2>
+
+        <div class="bg-white/5 border-l-4 border-gold p-4 rounded-r-xl inline-block text-left mb-4">
+          <p class="text-lg sm:text-xl font-bold text-white leading-tight">
+            1년 내 결제 고객 중 <span class="text-gold">절반 이상이 골드 회원</span>입니다.
+          </p>
+        </div>
+
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          야놀자 전체 결제를 주도하는 구매력 1위 VIP 고객들.<br>
+          이들의 검색 화면에 대표님의 숙소를 상단 노출시켜 공실을 채우세요.
+        </p>
+      </div>
+
+      <!-- 원형 차트 (53%) -->
+      <div class="w-[240px] sm:w-[280px] shrink-0 bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm relative">
+        <div class="absolute inset-0 bg-gold/5 rounded-3xl blur-xl"></div>
+        <p class="text-center text-xs font-bold text-slate-400 mb-4">최근 1년 내 결제 비중</p>
+        <div class="relative w-full aspect-square flex items-center justify-center">
+          <svg viewBox="0 0 36 36" class="donut-chart w-full h-full drop-shadow-xl">
+            <path class="donut-segment stroke-slate-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="donut-segment stroke-gold animate-fill-chart drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <div class="absolute flex flex-col items-center">
+            <span class="font-mont font-black text-4xl text-white">53<span class="text-xl text-gold">%</span></span>
+            <span class="text-[10px] font-bold text-gold mt-1">골드 회원 이상</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 중단: 핵심 혜택 & 목업 -->
+    <div class="flex flex-col lg:flex-row gap-8 items-stretch">
+
+      <!-- 혜택 리스트 -->
+      <div class="flex-1 space-y-4">
+        <div class="bg-gradient-to-r from-gold/20 to-transparent border-l-4 border-gold p-5 rounded-r-2xl">
+          <div class="flex items-center gap-3 mb-1.5">
+            <div class="bg-gold font-black text-xs px-2.5 py-1 rounded-md shrink-0" style="color:#020617">혜택 1</div>
+            <h3 class="text-base font-black text-white">GOLD 특가 필터 & 전용 배지</h3>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed pl-14">
+            VIP 고객이 [GOLD 특가] 필터를 누르면 <strong class="text-gold-light">일반 숙소를 제치고 상단에 모아서 노출</strong>됩니다.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-500/10 to-transparent border-l-4 border-blue-500 p-5 rounded-r-2xl">
+          <div class="flex items-center gap-3 mb-1.5">
+            <div class="bg-blue-500 text-white font-black text-xs px-2.5 py-1 rounded-md shrink-0">혜택 2</div>
+            <h3 class="text-base font-black text-white">5~20% 맞춤 할인 설정</h3>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed pl-14">
+            업장 상황에 맞춰 <strong class="text-white">할인율을 자유롭게 선택</strong>. 무리한 고정 할인 없이 마진을 방어하세요.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-500/10 to-transparent border-l-4 border-amber-400 p-5 rounded-r-2xl">
+          <div class="flex items-center gap-3 mb-1.5">
+            <div class="bg-amber-400 font-black text-xs px-2.5 py-1 rounded-md shrink-0" style="color:#020617">실제 성과</div>
+            <h3 class="text-base font-black text-white">여주 S 호텔 — 매일 예약 +1건</h3>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed pl-14">
+            골드클래스 적용 후 <strong class="text-amber-400">2주간 매일 예약 1건 추가 발생</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- 앱 목업 -->
+      <div class="w-full max-w-[300px] mx-auto lg:mx-0 shrink-0">
+        <div class="w-full bg-white rounded-[2rem] border-[6px] border-slate-700 shadow-2xl overflow-hidden">
+
+          <!-- 앱 상단 -->
+          <div class="px-3 pt-4 pb-2 bg-white flex items-center justify-between border-b border-slate-100">
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <div class="flex-1 mx-2 bg-slate-100 border border-slate-200 rounded-full h-8 flex items-center px-3 justify-between shadow-inner">
+              <span class="text-slate-800 font-bold text-xs">신촌</span>
+              <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </div>
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          </div>
+
+          <!-- 필터 -->
+          <div class="bg-white p-2 border-b border-slate-100 flex gap-1.5 overflow-x-auto no-scrollbar">
+            <span class="border border-slate-200 text-slate-500 px-2 py-1 rounded-full text-[10px] whitespace-nowrap bg-slate-50">예약가능</span>
+            <span class="border border-blue-600 text-blue-600 font-bold px-2 py-1 rounded-full text-[10px] whitespace-nowrap bg-blue-50 shadow-sm relative">
+              <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span></span>
+              Gold특가
+            </span>
+            <span class="border border-slate-200 text-slate-500 px-2 py-1 rounded-full text-[10px] whitespace-nowrap bg-slate-50">숙소쿠폰</span>
+          </div>
+
+          <!-- 숙소 리스트 -->
+          <div class="p-2 bg-slate-50 h-[300px] overflow-hidden flex flex-col gap-2">
+            <div class="bg-white rounded-xl p-2 flex gap-2 border border-slate-100">
+              <div class="w-[90px] h-[90px] rounded-lg bg-slate-200 relative overflow-hidden shrink-0">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                <div class="absolute top-1 left-1 bg-black/90 text-yellow-300 text-[8px] font-black px-1.5 py-0.5 rounded shadow">⭐ Gold 특가</div>
+              </div>
+              <div class="flex-1 flex flex-col justify-center">
+                <div class="text-[9px] text-slate-400 mb-0.5">프리미엄 호텔</div>
+                <h3 class="font-bold text-[13px] text-slate-900 leading-tight mb-1">신촌 그랜드 호텔 A</h3>
+                <div class="text-[10px] text-yellow-500 font-bold mb-1">★ 4.9 <span class="text-slate-400 font-normal">(1,234)</span></div>
+                <div class="flex gap-1 mb-1"><span class="bg-blue-50 text-blue-600 text-[8px] px-1 py-0.5 rounded font-medium">선착순 20% 쿠폰</span></div>
+                <div class="text-right font-black text-sm text-slate-900">88,000<span class="text-[9px] font-normal">원~</span></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-2 flex gap-2 border border-slate-100">
+              <div class="w-[90px] h-[90px] rounded-lg bg-slate-200 relative overflow-hidden shrink-0">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                <div class="absolute top-1 left-1 bg-black/90 text-yellow-300 text-[8px] font-black px-1.5 py-0.5 rounded shadow">⭐ Gold 특가</div>
+              </div>
+              <div class="flex-1 flex flex-col justify-center">
+                <div class="text-[9px] text-slate-400 mb-0.5">부티크 모텔</div>
+                <h3 class="font-bold text-[13px] text-slate-900 leading-tight mb-1">어반 부티크 B</h3>
+                <div class="text-[10px] text-yellow-500 font-bold mb-1">★ 4.8 <span class="text-slate-400 font-normal">(852)</span></div>
+                <div class="flex gap-1 mb-1"><span class="bg-blue-50 text-blue-600 text-[8px] px-1 py-0.5 rounded font-medium">선착순 10% 쿠폰</span></div>
+                <div class="text-right font-black text-sm text-slate-900">54,000<span class="text-[9px] font-normal">원~</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FAQ -->
+<section id="faq" class="py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <span class="text-electric-400 font-black text-xs tracking-widest">자주 묻는 질문</span>
+      <h2 class="text-3xl font-black mt-3 text-white">궁금한 점이 있으신가요?</h2>
+    </div>
+    <div class="space-y-3 reveal">
+      <div class="faq-item"><button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 flex justify-between items-center"><span class="font-bold text-white text-sm md:text-base">Q. 지금 야놀자 광고를 안 하고 있어도 되나요?</span><span class="text-electric-400 text-xl font-black ml-4 flex-shrink-0">+</span></button><div class="faq-answer px-6 pb-5 text-slate-400 text-sm leading-relaxed">네, 괜찮습니다. 현재 운영 상황을 먼저 살펴보고 가장 적합한 방법을 말씀드립니다.</div></div>
+      <div class="faq-item"><button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 flex justify-between items-center"><span class="font-bold text-white text-sm md:text-base">Q. 비싼 광고를 강요하는 건 아닌가요?</span><span class="text-electric-400 text-xl font-black ml-4 flex-shrink-0">+</span></button><div class="faq-answer px-6 pb-5 text-slate-400 text-sm leading-relaxed">아닙니다. 업장 규모와 공실 패턴에 맞는 세팅을 먼저 찾습니다. 불필요한 광고는 권하지 않습니다.</div></div>
+      <div class="faq-item"><button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 flex justify-between items-center"><span class="font-bold text-white text-sm md:text-base">Q. 상담은 어떻게 진행되나요?</span><span class="text-electric-400 text-xl font-black ml-4 flex-shrink-0">+</span></button><div class="faq-answer px-6 pb-5 text-slate-400 text-sm leading-relaxed">숙소명만 알려주시면 현재 광고 효율을 무료로 진단해 드립니다. 부담 없이 연락 주세요.</div></div>
+      <div class="faq-item"><button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 flex justify-between items-center"><span class="font-bold text-white text-sm md:text-base">Q. 효과가 없으면 어떻게 되나요?</span><span class="text-electric-400 text-xl font-black ml-4 flex-shrink-0">+</span></button><div class="faq-answer px-6 pb-5 text-slate-400 text-sm leading-relaxed">세팅 후에도 꾸준히 함께 점검합니다. 한 번 세팅하고 끝내지 않습니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24">
+  <div class="max-w-2xl mx-auto px-6 text-center reveal">
+    <span class="text-electric-400 font-black text-xs tracking-widest">무료 진단</span>
+    <h2 class="text-3xl md:text-4xl font-black mt-3 mb-4 text-white">지금 바로 무료 진단받으세요</h2>
+    <p class="text-slate-400 mb-10">현재 운영 중인 숙소명만 알려주시면,<br>광고 효율을 정밀 진단해 드립니다.</p>
+    <div class="dark-card rounded-3xl p-8 glow-blue">
+      <div class="text-slate-400 text-sm mb-1">NOL(야놀자) 온라인숙박영업팀</div>
+      <div class="text-3xl md:text-4xl font-black gradient-text mb-8">곽유민 컨설턴트</div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="tel:010-6380-0349" onclick="gtag&&gtag('event','phone_click',{'event_category':'contact','event_label':'전화버튼'});" class="btn-neon py-4 px-8 rounded-xl text-base inline-flex items-center justify-center gap-2">📞 010-6380-0349</a>
+        <a href="mailto:matt1214@nol-universe.com" class="btn-outline py-4 px-8 rounded-xl text-base font-bold inline-flex items-center justify-center gap-2">✉️ 이메일 문의</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 border-t border-dark-700 text-center text-slate-600 text-sm">© 2026 NOL Universe. All rights reserved.</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
+function closeMenu(){document.getElementById('mobile-menu').classList.add('hidden');}
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling,ico=btn.querySelector('span:last-child'),isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-item button span:last-child').forEach(i=>i.textContent='+');
+  if(!isOpen){ans.classList.add('open');ico.textContent='−';}
+}
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const STRATEGY={
+  namyangju:{title:"남양주시: 비즈니스와 레저의 하이브리드 상권",icon:"🚗",points:["✔️ <b>타겟:</b> 왕숙/다산신도시 건설 및 파견 근로자(주중 연박), 서울 외곽 드라이브 데이트족(주말)","✔️ <b>특징:</b> 1박 체류가 긴 비즈니스 수요와 짧지만 회전이 빠른 드라이브인 수요가 혼재","✔️ <b>운영 액션:</b> 무인 드라이브인 어필 / 비즈니스 연박객을 위한 스타일러·조식·세탁 시설 확충으로 단골 확보"]},
+  yeoju_icheon:{title:"여주/이천시: 대형 산단 비즈니스 및 골프·쇼핑 타겟",icon:"⛳",points:["✔️ <b>타겟:</b> SK하이닉스 등 대규모 산단 출장객, 프리미엄 아울렛/골프장 방문 레저객","✔️ <b>특징:</b> 주중에는 압도적인 비즈니스 연박 수요, 주말에는 1박 2일 알뜰 휴양객 수요 발생","✔️ <b>운영 액션:</b> [여주] 다인원 트윈베드 세팅 및 간편 조식 / [이천] 워케이션 맞춤형 데스크 및 고속 Wi-Fi 완비"]},
+  pocheon:{title:"포천시: 체류형 자연 관광 및 힐링 스팟",icon:"🏕️",points:["✔️ <b>타겟:</b> 산정호수·허브아일랜드·글램핑장 방문 서울/수도권 가족 및 연인","✔️ <b>특징:</b> 고품질 감성 숙소와 노후 숙소 간 양극화 심화","✔️ <b>운영 액션:</b> 넷플릭스/게이밍PC 등 하이테크화 필수. 글램핑·스파·반려견 동반 등 확실한 테마로 리포지셔닝"]},
+  gwangju:{title:"광주시: 수도권 근교 자연 친화적 휴양지",icon:"🌳",points:["✔️ <b>타겟:</b> 화담숲·남한산성 나들이객 및 힐링 목적의 가족/커플","✔️ <b>특징:</b> 감성 펜션·독채·글램핑 형태의 수요가 매우 높음","✔️ <b>운영 액션:</b> 프라이빗 바베큐·불멍 화로·대형 자쿠지 등 '숙소 내 체험형 콘텐츠' 적극 도입"]},
+  yangju:{title:"양주시: 신도시 개발에 따른 상권 다변화",icon:"🏗️",points:["✔️ <b>타겟:</b> 옥정/회천 신도시 유입 인구 및 기존 유흥 상권 방문 2030세대","✔️ <b>특징:</b> 개발 호재로 유동 인구가 증가하며 로컬 대실 수요 지속 상승","✔️ <b>운영 액션:</b> 화이트톤 모던 인테리어 리모델링 강력 추천. 파티룸 형태의 대관형 상품 기획"]},
+  gapyeong:{title:"가평군: 수도권 최대 휴양 레저 레드오션",icon:"🏊‍♂️",points:["✔️ <b>타겟:</b> 대학생 MT·2030 커플·가족 단위의 사계절 방문객","✔️ <b>특징:</b> 펜션/풀빌라 공급 과잉으로 노출 순위 방어 및 리뷰 관리가 생존의 핵심","✔️ <b>운영 액션:</b> SNS 인증용 시그니처 포토존 필수. 비수기 주중에는 '무료 픽업'·'바베큐 무한리필' 등 부가서비스 패키징"]},
+  ansan:{title:"안산시: 탄탄한 산업단지 출장 수요 및 로컬 상권",icon:"🏭",points:["✔️ <b>타겟:</b> 반월/시화 국가산단 파견 내·외국인 비즈니스맨, 중앙동 일대 2030 데이트족","✔️ <b>특징:</b> 평일 장기 투숙 베이스라인 위로 주말 대실/숙박 회전이 얹히는 구조","✔️ <b>운영 액션:</b> 다국어 안내 및 조식 제공. 비즈니스 렌탈(노트북·고데기 등) 서비스로 출장객 만족도 극대화"]},
+  gunpo:{title:"군포시: 복합물류 허브 및 밀집형 거주 상권",icon:"📦",points:["✔️ <b>타겟:</b> 물류터미널/산단 출장객 및 산본 중심상가 위주의 지역 밀착형 유동인구","✔️ <b>특징:</b> 평일과 주말의 타겟층이 완전히 분리되어 요일별 차별화된 마케팅 세팅이 필요","✔️ <b>운영 액션:</b> 평일은 '가성비 연박 요금제', 주말은 '고품질 OTT 룸 + 스낵바 무제한' 마케팅"]},
+  uijeongbu:{title:"의정부시: 경기 북부 최상위 상업 및 유흥 허브",icon:"🛍️",points:["✔️ <b>타겟:</b> 의정부역/로데오거리를 중심으로 모이는 20대 유동인구","✔️ <b>특징:</b> 대중교통 접근성이 뛰어나 도보 유입(워크인) 비율이 높고 대실 회전율이 압도적","✔️ <b>운영 액션:</b> 키오스크/비대면 입실 시스템 완비. 고사양 게이밍 2PC 룸 세팅 시 회전율 및 객단가 동시 상승"]},
+  yeoncheon:{title:"연천군: 생태 관광 및 특수목적(군부대) 타겟",icon:"🦌",points:["✔️ <b>타겟:</b> 재인폭포/전곡리 자연 관광객, 군 장병 면회/외박객","✔️ <b>특징:</b> 소규모 펜션·로컬 모텔 비중이 높아 기본기 싸움이 중요","✔️ <b>운영 액션:</b> 장병 특화 '군인 우대 할인' 세팅 필수. 대가족 면회객 수용 온돌방·투룸 컨디션 쾌적하게 유지"]},
+  dongducheon:{title:"동두천시: 니치 관광 마켓 및 지역 단골 확보",icon:"🏘️",points:["✔️ <b>타겟:</b> 소요산 등산객, 미군 부대 관련 수요 및 로컬 방문객","✔️ <b>특징:</b> 신규 경쟁 업체의 유입이 적어 방문 고객을 단골로 만드는 락인 전략이 유효","✔️ <b>운영 액션:</b> 등산객을 위한 유연한 얼리 체크인/레이트 체크아웃. 안마의자 객실 또는 욕조 스파 어필"]},
+  jongno:{title:"종로구: 전통과 오피스가 결합된 거대 상권",icon:"🏯",points:["✔️ <b>타겟:</b> 내외국인 관광객(경복궁·인사동) 및 광화문/종각 일대 직장인","✔️ <b>특징:</b> 평일 심야 회식 후 숙박 수요와 주말 인바운드 관광객의 숙박이 빈틈없이 교차","✔️ <b>운영 액션:</b> 글로벌 OTA 연동 및 다국어 안내 필수. 외국인 대상 짐 보관 서비스로 글로벌 평점 5점 확보"]},
+  yongsan:{title:"용산구: KTX 전국망 허브 및 하이엔드 트렌드",icon:"🚆",points:["✔️ <b>타겟:</b> KTX 이용 출장객/여행객 및 이태원/해방촌 방문 2030 트렌드세터","✔️ <b>특징:</b> 시설의 '급'과 '분위기'가 맞으면 기꺼이 지불하는 가치소비 성향","✔️ <b>운영 액션:</b> 고급 브랜드 어메니티(이솝·르라보 등) 세팅. 대형 스마트TV와 최고급 침구류로 호캉스 포지셔닝"]},
+  junggu:{title:"중구: 쇼핑 및 MICE 중심의 비즈니스 허브",icon:"🛍️",points:["✔️ <b>타겟:</b> 명동 쇼핑객, 동대문 새벽시장 상인/바이어, 전시 컨벤션 참석자","✔️ <b>특징:</b> 체류 목적이 매우 뚜렷한 타겟이 밀집해 있으며 단체나 2인 이상 투숙 비중이 높음","✔️ <b>운영 액션:</b> 풋스파/입욕제 등 웰니스 서비스 제공. 동대문 상인을 위한 '심야/새벽 유연 체크인' 상품 기획"]},
+  eunpyeong:{title:"은평구: 탄탄한 로컬 거주 상권 및 북한산 수요",icon:"⛰️",points:["✔️ <b>타겟:</b> 연신내 로데오거리 방문 로컬 2030 데이트족 및 주말 북한산 등산객","✔️ <b>특징:</b> 외부 유입보다는 지역 내 거주민의 반복 이용(단골) 비율이 높음","✔️ <b>운영 액션:</b> '내 방처럼 아늑하고 깨끗한' 인테리어 유지. 지역 단골을 묶어둘 자체 포인트 적립제나 단골 쿠폰 발행"]},
+  nowon:{title:"노원구: 대학가 기반 젊은 유동인구 초밀집",icon:"🎓",points:["✔️ <b>타겟:</b> 과기대·서울여대 등 다수 대학 포진으로 인한 20대 초중반 학생층","✔️ <b>특징:</b> 대실 회전율이 극도로 높으며 가성비에 민감하고 SNS 인증과 리뷰에 큰 영향을 받음","✔️ <b>운영 액션:</b> 고데기·다이슨 렌탈·감성 조명 등 '찍을 거리'에 집중. 솔직하고 친절한 리뷰 답글 관리로 충성도 확보"]},
+  dobong:{title:"도봉구: 주거 밀집 및 여가 인프라 발전 상권",icon:"🏘️",points:["✔️ <b>타겟:</b> 쌍문/창동 일대 주거지 기반의 로컬 커플, 도봉산 등산 및 나들이객","✔️ <b>특징:</b> 서울 내 타 지역 대비 경쟁 업체의 노후화 비율이 높아 약간의 투자로도 상위권 도약 가능","✔️ <b>운영 액션:</b> 침구 교체 및 넷플릭스 전용룸 구축만으로도 지역 내 트래픽을 독식할 수 있음"]}
+};
+
+const TIPS={
+  '15-20':{title:"15~20개 규모의 베이직 세팅",base:"베이직 또는 스탠다드 광고",addon:"포인트룸 + 골드클래스 추가",desc:"객실이 적어 가동률 100% 달성 시 매출 한계가 명확합니다. 기본 노출을 유지하면서, 수수료 부담이 적은 '포인트룸'과 타겟팅이 확실한 '골드클래스'를 결합해 객단가 마진을 방어하는 것이 핵심입니다."},
+  '21-24':{title:"21~24개 규모의 공실 방어 세팅",base:"베이직 또는 스탠다드 광고",addon:"쿠폰룸 또는 골드클래스 (택1 필수)",desc:"고정비용은 최소화하되 평일 공실 방어에 총력을 기울여야 합니다. 리뷰/평점이 좋다면 '골드클래스'로 VIP를 공략하고, 클릭률 펌핑이 급하다면 '쿠폰룸'으로 파격적인 할인을 던지세요."},
+  '25+':{title:"25개 이상 규모의 트래픽 폭발 세팅",base:"프로 또는 울트라 광고",addon:"쿠폰룸 / 골드클래스 100% 활용",desc:"최상단 노출(프로/울트라)을 잡아 지역 상권의 트래픽을 블랙홀처럼 빨아들인 뒤, 쿠폰룸이나 골드클래스 혜택을 강력하게 얹어 유입된 고객이 절대 다른 숙소로 이탈하지 못하도록 가두어야 합니다."}
+};
+
+function showRegion(key,btn){
+  document.querySelectorAll('.city-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const d=STRATEGY[key];if(!d)return;
+  const report=document.getElementById('region-report');
+  report.innerHTML=`<div class="mb-8"><h3 class="text-xl md:text-2xl font-black text-white mb-5 flex items-center gap-3"><span>${d.icon}</span>${d.title}</h3><div class="bg-dark-900 rounded-2xl p-6 border border-dark-700"><ul class="space-y-4 text-slate-400 text-sm leading-relaxed">${d.points.map(p=>`<li>${p}</li>`).join('')}</ul></div></div><div class="bg-electric-400/5 border border-electric-400/20 rounded-2xl p-6 md:p-8"><h4 class="text-base font-black text-electric-400 mb-5">💡 우리 숙소 규모에 맞는 광고 세팅은?</h4><div class="flex flex-wrap gap-3 mb-6"><button onclick="renderTip('15-20',this)" class="tip-btn flex-1 bg-dark-900 border border-dark-700 text-slate-300 font-bold py-3 px-4 rounded-xl hover:border-electric-400 hover:text-electric-400 transition text-sm">객실 15~20개</button><button onclick="renderTip('21-24',this)" class="tip-btn flex-1 bg-dark-900 border border-dark-700 text-slate-300 font-bold py-3 px-4 rounded-xl hover:border-electric-400 hover:text-electric-400 transition text-sm">객실 21~24개</button><button onclick="renderTip('25+',this)" class="tip-btn flex-1 bg-dark-900 border border-dark-700 text-slate-300 font-bold py-3 px-4 rounded-xl hover:border-electric-400 hover:text-electric-400 transition text-sm">객실 25개 이상</button></div><div id="tip-result" class="hidden bg-dark-900 p-5 rounded-xl border border-dark-700 fade-in"></div></div>`;
+  report.classList.remove('hidden');report.classList.remove('fade-in');void report.offsetWidth;report.classList.add('fade-in');
+}
+
+function renderTip(key,btn){
+  document.querySelectorAll('.tip-btn').forEach(b=>{b.classList.remove('bg-electric-400','text-dark-900','border-electric-400');b.classList.add('bg-dark-900','text-slate-300','border-dark-700');});
+  btn.classList.remove('bg-dark-900','text-slate-300','border-dark-700');btn.classList.add('bg-electric-400','text-dark-900','border-electric-400');
+  const t=TIPS[key],area=document.getElementById('tip-result');
+  area.innerHTML=`<h5 class="font-black text-white mb-3">${t.title}</h5><p class="text-sm text-slate-400 mb-5 leading-relaxed">${t.desc}</p><div class="flex flex-col sm:flex-row gap-3"><div class="flex-1 bg-dark-800 p-4 rounded-xl border border-dark-700"><span class="block text-xs font-bold text-slate-500 mb-1">✅ 기본 라인업</span><span class="font-bold text-white text-sm">${t.base}</span></div><div class="flex-1 bg-electric-400/5 p-4 rounded-xl border border-electric-400/20"><span class="block text-xs font-bold text-electric-400 mb-1">🎁 혜택 라인업</span><span class="font-bold text-electric-300 text-sm">${t.addon}</span></div></div><div class="mt-5 text-right"><a href="#contact" class="text-sm text-electric-400 font-bold hover:underline">상세 세팅 문의하기 →</a></div>`;
+  area.classList.remove('hidden');
+}
+</script>
+</body>
+</html>
